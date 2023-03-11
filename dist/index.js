@@ -25,7 +25,7 @@ function search() {
 function isValid(nameInput, amountInput) {
     var _a;
     const hasDigit = new RegExp(/[0-9]/ig);
-    const isDifferentFormDigit = new RegExp(/^[0-9]/ig);
+    const isDifferentFormDigit = new RegExp(/[^0-9]/ig);
     const hasWord = new RegExp(/[a-z]/ig);
     if (nameInput == null || !nameInput.value || hasDigit.test(nameInput.value))
         return { message: "Invalid Name", error: true };
