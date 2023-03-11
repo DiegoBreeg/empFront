@@ -24,8 +24,8 @@ function isValid(nameInput: HTMLInputElement | null, amountInput: HTMLInputEleme
     if (amountInput == null || !amountInput.value || hasWord.test(amountInput.value))
         return { message: "Invalid Amount", error: true }
 
-    console.log(RegExp(/[^0-9]/ig).test(amountInput.value))
-    const name = nameInput.value.replace(/\s/ig, '-')
+    //console.log(RegExp(/[^0-9]/ig).test(amountInput.value))
+    const name = nameInput.value.replace(/\s/ig, '-').toLowerCase()
     const amount = Number(amountInput.value.match(/[0-9]/ig)?.join(''))
     return { message: `https://empyrion-calculator.onrender.com/calculate?name=${name}&amount=${amount}`, error: false }
 }

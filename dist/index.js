@@ -30,8 +30,8 @@ function isValid(nameInput, amountInput) {
         return { message: "Invalid Name", error: true };
     if (amountInput == null || !amountInput.value || hasWord.test(amountInput.value))
         return { message: "Invalid Amount", error: true };
-    console.log(RegExp(/[^0-9]/ig).test(amountInput.value));
-    const name = nameInput.value.replace(/\s/ig, '-');
+    //console.log(RegExp(/[^0-9]/ig).test(amountInput.value))
+    const name = nameInput.value.replace(/\s/ig, '-').toLowerCase();
     const amount = Number((_a = amountInput.value.match(/[0-9]/ig)) === null || _a === void 0 ? void 0 : _a.join(''));
     return { message: `https://empyrion-calculator.onrender.com/calculate?name=${name}&amount=${amount}`, error: false };
 }
