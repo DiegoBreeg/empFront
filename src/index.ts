@@ -17,14 +17,14 @@ async function search() {
 }
 
 function isValid(nameInput: HTMLInputElement | null, amountInput: HTMLInputElement | null): { message: string, error: boolean } {
-    const hasDigit = new RegExp(/[0-9]/ig)
-    const isDifferentFormDigit = new RegExp(/[^0-9]/ig)
+    const hasDigit = new RegExp(/[0-9]/ig)    
     const hasWord = new RegExp(/[a-z]/ig)
     if (nameInput == null || !nameInput.value || hasDigit.test(nameInput.value))
         return { message: "Invalid Name", error: true }
-    if (amountInput == null || !amountInput.value || hasWord.test(amountInput.value) || isDifferentFormDigit.test(amountInput.value))
+    if (amountInput == null || !amountInput.value || hasWord.test(amountInput.value))
         return { message: "Invalid Amount", error: true }
-    console.log(isDifferentFormDigit.test(amountInput.value))
+
+    console.log(RegExp(/[^0-9]/ig).test(amountInput.value))
     const name = nameInput.value.replace(/\s/ig, '-')
     const amount = Number(amountInput.value.match(/[0-9]/ig)?.join(''))
     return { message: `https://empyrion-calculator.onrender.com/calculate?name=${name}&amount=${amount}`, error: false }
